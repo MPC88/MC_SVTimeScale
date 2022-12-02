@@ -9,7 +9,7 @@ namespace MC_SVTimeScale
     {
         public const string pluginGuid = "mc.starvalor.timescale";
         public const string pluginName = "SV Time Scale";
-        public const string pluginVersion = "1.0.0";
+        public const string pluginVersion = "1.0.1";
 
         private static ConfigEntry<KeyCodeSubset> cfgIncrement;
         private static ConfigEntry<KeyCodeSubset> cfgReset;
@@ -74,7 +74,8 @@ namespace MC_SVTimeScale
                 }
             }
 
-            Time.timeScale = timeScale;
+            if (Time.timeScale > 0)
+                Time.timeScale = timeScale;
         }
     }
 }
