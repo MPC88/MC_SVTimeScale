@@ -9,7 +9,7 @@ namespace MC_SVTimeScale
     {
         public const string pluginGuid = "mc.starvalor.timescale";
         public const string pluginName = "SV Time Scale";
-        public const string pluginVersion = "1.0.1";
+        public const string pluginVersion = "1.0.2";
 
         private static ConfigEntry<KeyCodeSubset> cfgIncrement;
         private static ConfigEntry<KeyCodeSubset> cfgReset;
@@ -19,7 +19,7 @@ namespace MC_SVTimeScale
         private static ConfigEntry<float> cfgHoldModeScale;
 
         private static float timeScale = 1.0f;
-
+        private static float fixedDT;
         public void Awake()
         {
             cfgIncrement = Config.Bind("Increment/Reset Mode",
@@ -46,6 +46,8 @@ namespace MC_SVTimeScale
                 "3. Time scale",
                 3.0f,
                 "The time scale to set when the hold key is held.");
+
+            fixedDT = Time.fixedDeltaTime;
         }
 
         public void Update()
@@ -75,7 +77,10 @@ namespace MC_SVTimeScale
             }
 
             if (Time.timeScale > 0)
+            {
                 Time.timeScale = timeScale;
+                Time.fixedDeltaTime = fixedDT * timeScale;
+            }
         }
     }
 }
