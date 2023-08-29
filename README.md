@@ -26,12 +26,7 @@ Use / Configuration
 =====
 After first run, a new file will be created in .\Star Valor\BepInEx\config\ called mc.starvalor.timescale.cfg to change key bindings and operating mode.  
   
-Modes:  
-- Increment in steps and reset.  
-- Hold key to speed up game, release to reset.
-  
 Options:  
-Hold Key Mode
 - Enable hold key mode? - Set to true to enable hold key mode.  Set to false to use increment/reset mode.  Default is false.  
 - Hold key - The "hold key" mode key.  Default is \\.  
 - Time scale - The time multiplier to use in when the hold key mode key is held.  Default is 3.  
